@@ -5,6 +5,7 @@
 import 'dart:developer';
 
 import 'package:english_words/english_words.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -128,7 +129,8 @@ class RandomWordsState extends State<StatefulWidget> {
 
   void _navigateToSaved() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
+        // CupertinoPageRoute slides left/right, MaterialPageRoute slides up/down
+        .push(CupertinoPageRoute(builder: (BuildContext context) {
       return Scaffold(
           appBar: AppBar(title: Text("Saved names")),
           body: ListView(children: makeSavedTiles(context)));
